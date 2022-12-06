@@ -1,0 +1,12 @@
+.add-button__vector {
+  display: flex;
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  background-image: url(../../../images/add-button.svg);
+  background-size: contain;
+  /*z-index: 1;*/
+}

@@ -1,0 +1,22 @@
+.description__vector {
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../images/like-button.svg);
+  margin: 6px 0 0;
+  box-sizing: border-box;
+  padding: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  opacity: 1;
+  background-clip: border-box;
+}
+
+.description__vector:hover {
+  opacity: 0.5;
+}
+
+.description__vector:active {
+  background-image: url(../../../images/like-button-active.svg);
+  opacity: 1;
+}
