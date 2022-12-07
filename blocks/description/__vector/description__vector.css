@@ -9,6 +9,8 @@
   background-repeat: no-repeat;
   cursor: pointer;
   opacity: 1;
+  border: none;
+  background-color: white;
 }
 
 .description__vector:hover {
