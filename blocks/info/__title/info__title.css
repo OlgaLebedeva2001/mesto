@@ -6,13 +6,11 @@
   color: #ffffff;
   margin: 0;
   padding: 0;
-  /*max-width: 294px;*/
   width: 100%;
 }
 
 @media screen and (max-width: 753px) {
   .info__title {
-    /*max-width: 192px;*/
     font-size: 27px;
     line-height: 33px;
   }

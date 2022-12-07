@@ -1,7 +1,6 @@
 .profile__info {
   display: flex;
   row-gap: 5px;
-  /*max-width: 339px;*/
   width: 100%;
   box-sizing: border-box;
   flex-direction: column;
@@ -14,6 +13,5 @@
     align-items: center;
     row-gap: 3px;
     padding-bottom: 36px;
-    /*max-width: 282px;*/
   }
 }
