@@ -1,7 +1,7 @@
 .info__part {
   display: flex;
   flex-direction: row;
-  max-width: 339px;
+  /*max-width: 339px;*/
   width: 100%;
   align-items: end;
   box-sizing: border-box;
@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 700px) {
   .info__part {
-    max-width: 282px;
+    /*max-width: 282px;*/
     padding: 0 19px 0 46px;
   }
 }
