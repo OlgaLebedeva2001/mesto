@@ -1,7 +1,6 @@
 .header {
   width: 100%;
   min-height: 74px;
-  width: 100%;
   display: flex;
   margin: 0 auto;
   flex-direction: column;

@@ -13,10 +13,8 @@
 @import url(../blocks/info/__part/info__part.css);
 @import url(../blocks/info/__title/info__title.css);
 @import url(../blocks/info/__edit-button/info__edit-button.css);
-@import url(../blocks/edit-button/__vector/edit-button__vector.css);
 @import url(../blocks/info/__subtitle/info__subtitle.css);
 @import url(../blocks/info/__add-button/info__add-button.css);
-@import url(../blocks/add-button/__vector/add-button__vector.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__element/elements__element.css);
 @import url(../blocks/elements/__image/element__image.css);

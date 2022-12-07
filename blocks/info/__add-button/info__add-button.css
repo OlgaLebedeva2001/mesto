@@ -11,6 +11,10 @@
   align-items: center;
   cursor: pointer;
   opacity: 1;
+  background-image: url(../../../images/add-button.svg);
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .info__add-button:hover {
@@ -20,5 +24,6 @@
 @media screen and (max-width: 753px) {
   .info__add-button {
     max-width: 282px;
+    background-size: 16px;
   }
 }
