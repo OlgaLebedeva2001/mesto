@@ -1,12 +1,15 @@
 .header {
   width: 100%;
-  min-height: 74px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  justify-content: space-between;
   box-sizing: border-box;
   padding: 0 200px;
+}
+
+.header::after {
+  content: "";
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 @media screen and (max-width: 1279px) {
@@ -18,7 +21,6 @@
 
 @media screen and (max-width: 700px) {
   .header {
-    min-height: 56px;
     padding-left: 0;
     padding-right: 0;
   }

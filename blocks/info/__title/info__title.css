@@ -7,11 +7,16 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 294px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 753px) {
   .info__title {
     font-size: 27px;
     line-height: 33px;
+    max-width: 189px;
   }
 }
