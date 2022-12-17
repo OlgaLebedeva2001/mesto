@@ -25,6 +25,61 @@ const initialCards = [
   },
 ];
 //////////////////////////////////////////////////////////////////
+const cardsContainer = document.querySelector(".elements");
+
+let form2Element = document.querySelector(".popup2__form"); //форма добавления
+let titleInput = document.querySelector(".popup2__input_field_title"); //инпут для названия
+let linkInput = document.querySelector(".popup2__input_field_link"); //импут для ссылки
+
+let cardName = document.querySelector(".description__title");
+let cardLink = document.querySelector(".element__image");
+
+const template = document.querySelector("#element-template");
+//////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////
+const createCard = (cardName, cardLink) => {
+  const card = template.content
+    .querySelector(".elements__element")
+    .cloneNode(true);
+
+  card
+    .querySelector(".element__description")
+    .querySelector(".description__title").textContent = cardName;
+  card.querySelector(".element__image").src = cardLink;
+
+  card.querySelector(".card__del").addEventListener("click", () => {
+    card.remove();
+  });
+
+  return card;
+};
+
+const renderCard = (cardName, cardLink) => {
+  cardsContainer.prepend(createCard(cardName, cardLink));
+};
+
+initialCards.forEach((item) => {
+  renderCard(item);
+});
+
+const addCard = (event) => {
+  event.preventDefault();
+  /*cardName.textContent = titleInput.value;
+  cardLink.src = linkInput.value;*/
+  const cardName = titleInput.value;
+  const cardLink = linkInput.value;
+  renderCard(cardName, cardLink);
+  /*titleInput.value = " ";
+  linkInput.value = " ";*/
+  closePopup2();
+};
+
+///////////////////////////////////////////////
+
+/*form2Element.addEventListener("submit", addCard);*/
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 const editPopupButton = document.querySelector(".info__edit-button");
 const closePopupButton = document.querySelector(".popup__close");
 const popup = document.querySelector(".popup");
@@ -37,9 +92,7 @@ let jobInput = document.querySelector(".popup__input_field_job");
 let addPopupButton = document.querySelector(".profile__add-button");
 const closePopup2Button = document.querySelector(".popup2__close");
 const popup2 = document.querySelector(".popup2");
-let titleInput = document.querySelector(".popup2__input_field_title");
-let linkInput = document.querySelector(".popup2__input_field_link");
-let form2Element = document.querySelector(".popup2__form");
+
 let pictureTitle = document.querySelector(".description__title");
 let pictureLink = document.querySelector(".element__image");
 //////////////////////////////////////////////////////////////
@@ -48,7 +101,6 @@ function openPopup() {
   nameInput.value = infoTitle.textContent;
   jobInput.value = infoSubtitle.textContent;
 }
-
 function closePopup() {
   popup.classList.remove("popup_opened");
 }
@@ -56,7 +108,6 @@ function closePopup() {
 function openPopup2() {
   popup2.classList.add("popup2_opened");
 }
-
 function closePopup2() {
   popup2.classList.remove("popup2_opened");
 }
@@ -72,7 +123,7 @@ function handleFormSubmit(evt) {
   closePopup();
 }
 //////////////////////////////////////////////////////////////////
-function addFormSubmit(evt) {
+/*function addFormSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Получите значение полей jobInput и nameInput из свойства value
   // Выберите элементы, куда должны быть вставлены значения полей
@@ -80,7 +131,7 @@ function addFormSubmit(evt) {
   pictureTitle.textContent = titleInput.value;
   pictureLink.textContent = linkInput.value;
   closePopup2();
-}
+}*/
 //////////////////////////////////////////////////////////////////
 editPopupButton.addEventListener("click", openPopup);
 closePopupButton.addEventListener("click", closePopup);
@@ -88,4 +139,6 @@ formElement.addEventListener("submit", handleFormSubmit);
 /////////////////////////////////////////////////////////////////
 addPopupButton.addEventListener("click", openPopup2);
 closePopup2Button.addEventListener("click", closePopup2);
-form2Element.addEventListener("submit", addFormSubmit);
+/*form2Element.addEventListener("submit", addFormSubmit);*/
+
+form2Element.addEventListener("submit", addCard);
