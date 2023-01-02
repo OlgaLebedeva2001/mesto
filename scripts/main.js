@@ -32,7 +32,7 @@ let titleInput = document.querySelector(".popup2__input_field_title"); //инп�
 let linkInput = document.querySelector(".popup2__input_field_link"); //импут для ссылки
 const template = document.querySelector("#element-template");
 
-const popupImg = document.querySelector(".popup__open-card");
+const popupImg = document.querySelector(".popup-open-card");
 const buttonCloseImg = popupImg.querySelector(".popup__close-card");
 
 const popupImageOpen = popupImg.querySelector(".popup__img-container");
@@ -138,10 +138,10 @@ function openBigImage({ name, link }) {
 //////////////////////////////////////////////////////////////
 
 function popupOpenImg() {
-  popupImg.classList.add("popup__open-card_opened");
+  popupImg.classList.add("popup-open-card_opened");
 }
 function popupCloseImg() {
-  popupImg.classList.remove("popup__open-card_opened");
+  popupImg.classList.remove("popup-open-card_opened");
 }
 
 ///////////////////////////////////////////////////////////////

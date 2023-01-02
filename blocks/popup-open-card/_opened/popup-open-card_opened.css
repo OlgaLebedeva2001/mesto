@@ -1,4 +1,4 @@
-.popup__open-card_opened {
+.popup-open-card_opened {
   display: flex;
   visibility: visible;
   opacity: 1;
