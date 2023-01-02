@@ -10,7 +10,6 @@
   position: relative;
   box-sizing: border-box;
   flex-direction: column;
-  /*align-items: center;*/
 }
 
 @media screen and (max-width: 753px) {

@@ -28,56 +28,6 @@
             <button class="profile__add-button" type="button"></button>
         </section>
         <section class="elements">
-            <div class="elements__element element">
-                <div style="background-image:url(./images/karachaevsk.png)" alt="Карачаевск" class="element__image">
-                </div>
-                <!--<img src="./images/karachaevsk.png" alt="Карачаевск" class="element__image">-->
-                <div class="element__description description">
-                    <h2 class="description__title">Карачаевск</h2>
-                    <button class="description__vector" type="button"></button>
-                </div>
-            </div>
-            <div class="elements__element element">
-                <div style="background-image:url(./images/elbrus.png)" alt="Гора Эльбрус" class="element__image"></div>
-                <!--<img src="./images/elbrus.png" alt="Гора Эльбрус" class="element__image">-->
-                <div class="element__description description">
-                    <h2 class="description__title">Гора Эльбрус</h2>
-                    <button class="description__vector" type="button"></button>
-                </div>
-            </div>
-            <div class="elements__element element">
-                <div style="background-image:url(./images/dombai.png)" alt="Домбай" class="element__image"></div>
-                <!--<img src="./images/dombai.png" alt="Домбай" class="element__image">-->
-                <div class="element__description description">
-                    <h2 class="description__title">Домбай</h2>
-                    <button class="description__vector" type="button"></button>
-                </div>
-            </div>
-            <div class="elements__element element">
-                <div style="background-image:url(./images/elbrus.png)" alt="Гора Эльбрус" class="element__image"></div>
-                <!--<img src="./images/elbrus.png" alt="Гора Эльбрус" class="element__image">-->
-                <div class="element__description description">
-                    <h2 class="description__title">Гора Эльбрус</h2>
-                    <button class="description__vector" type="button"></button>
-                </div>
-            </div>
-            <div class="elements__element element">
-                <div style="background-image:url(./images/dombai.png)" alt="Домбай" class="element__image"></div>
-                <!--<img src="./images/dombai.png" alt="Домбай" class="element__image">-->
-                <div class="element__description description">
-                    <h2 class="description__title">Домбай</h2>
-                    <button class="description__vector" type="button"></button>
-                </div>
-            </div>
-            <div class="elements__element element">
-                <div style="background-image:url(./images/karachaevsk.png)" alt="Карачаево-Черкесье"
-                    class="element__image"></div>
-                <!--<img src="./images/karachaevsk.png" alt="Карачаево-Черкесье" class="element__image">-->
-                <div class="element__description description">
-                    <h2 class="description__title">Карачаево-Черкесия</h2>
-                    <button class="description__vector" type="button"></button>
-                </div>
-            </div>
         </section>
     </main>
     <footer class="footer">
@@ -100,19 +50,27 @@
             <h2 class="popup2__title">Новое место</h2>
             <form class="popup2__form" name="editForm" action="#" method="get">
                 <input class="popup2__input popup2__input_field_title" type="text" placeholder="Название"
-                    name="pictureTitle" value="Название">
+                    name="pictureTitle" value="">
                 <input class="popup2__input popup2__input_field_link" type="text" placeholder="Ссылка на картинку"
-                    name="linkToPicture" value="Ссылка на картинку">
+                    name="linkToPicture" value="">
                 <button type="submit" class="popup2__submit">Создать</button>
             </form>
             <button class="popup2__close" type="button"></button>
         </div>
     </div>
 
+    <div class="popup popup__open-card">
+        <figure class="popup__img-container">
+            <button class="popup__close-card" type="button" aria-label="Закрыть"></button>
+            <img class="popup__img" src="#" alt="Фотографии мест, описаных в карточке">
+            <figcaption class="popup__img-title"></figcaption>
+        </figure>
+    </div>
+
     <template id="element-template">
         <div class="elements__element element">
-            <div style=" " alt="Карачаево-Черкесье" class="element__image">
-            </div>
+            <img src="#" alt="" class="element__image">
+            <button class="element__del" type="button"></button>
             <div class="element__description description">
                 <h2 class="description__title">Карачаево-Черкесия</h2>
                 <button class="description__vector" type="button"></button>

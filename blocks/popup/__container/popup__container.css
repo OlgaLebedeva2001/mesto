@@ -1,6 +1,7 @@
 .popup__container {
   display: flex;
   margin: auto;
+  /*justify-content: center;*/
   max-width: 430px;
   width: 100%;
   background-color: #ffffff;

@@ -8,9 +8,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  opacity: 1;
   border: none;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .description__vector:hover {
