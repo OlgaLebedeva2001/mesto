@@ -29,55 +29,57 @@
         </section>
         <section class="elements">
         </section>
+        <template id="element-template">
+            <div class="elements__element element">
+                <img src="#" alt="" class="element__image">
+                <button class="element__del" type="button"></button>
+                <div class="element__description description">
+                    <h2 class="description__title">Карачаево-Черкесия</h2>
+                    <button class="description__vector" type="button"></button>
+                </div>
+            </div>
+        </template>
     </main>
     <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+
+    <div class="popup popup_type_edit-profile">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="editForm" action="#" method="get">
-                <input class="popup__input popup__input_field_name" type="text" placeholder="Имя" name="name">
-                <input class="popup__input popup__input_field_job" type="text" placeholder="О себе"
-                    name="aboutYourself">
-                <button type="submit" class="popup__submit">Сохранить</button>
+            <form class="popup__form" id="editForm" name="editForm" action="#" method="get">
+                <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="name">
+                <input class="popup__input popup__input_type_job" type="text" placeholder="О себе" name="aboutYourself">
+                <button type="submit" class="popup__button-submit">Сохранить</button>
             </form>
             <button class="popup__close" type="button"></button>
         </div>
     </div>
-    <div class="popup2">
-        <div class="popup2__container">
-            <h2 class="popup2__title">Новое место</h2>
-            <form class="popup2__form" name="editForm" action="#" method="get">
-                <input class="popup2__input popup2__input_field_title" type="text" placeholder="Название"
+    <div class="popup popup_type_add-card">
+        <div class="popup__container">
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form" id="addForm" name="addForm" action="#" method="get">
+                <input class="popup__input popup__input_type_title-img" type="text" placeholder="Название"
                     name="pictureTitle" value="">
-                <input class="popup2__input popup2__input_field_link" type="text" placeholder="Ссылка на картинку"
+                <input class="popup__input popup__input_type_link" type="text" placeholder="Ссылка на картинку"
                     name="linkToPicture" value="">
-                <button type="submit" class="popup2__submit">Создать</button>
+                <button type="submit" class="popup__button-submit">Создать</button>
             </form>
-            <button class="popup2__close" type="button"></button>
+            <button class="popup__close" type="button"></button>
         </div>
     </div>
 
-    <div class="popup popup-open-card">
+    <div class="popup popup_type_img">
         <figure class="popup__img-container">
-            <button class="popup__close-card" type="button" aria-label="Закрыть"></button>
+            <button class="popup__close" type="button" aria-label="Закрыть"></button>
             <img class="popup__img" src="#" alt="Фотографии мест, описаных в карточке">
             <figcaption class="popup__img-title"></figcaption>
         </figure>
     </div>
 
-    <template id="element-template">
-        <div class="elements__element element">
-            <img src="#" alt="" class="element__image">
-            <button class="element__del" type="button"></button>
-            <div class="element__description description">
-                <h2 class="description__title">Карачаево-Черкесия</h2>
-                <button class="description__vector" type="button"></button>
-            </div>
-        </div>
-    </template>
+    <script src="./scripts/cards.js"></script>
     <script src="./scripts/main.js"></script>
+
 </body>
 
 </html>
