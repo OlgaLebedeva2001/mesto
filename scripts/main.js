@@ -1,65 +1,43 @@
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-////////////////////////////////////////////////////////////////////
 const cardsContainer = document.querySelector(".elements");
+///////////////////////////////////////////////////////////////////
 
-const formAddElement = document.querySelector("#addForm");
-const titleInput = document.querySelector(".popup__input_type_title-img");
-const linkInput = document.querySelector(".popup__input_type_link");
-const template = document
-  .querySelector("#element-template")
-  .content.querySelector(".elements__element");
-
-const popupImg = document.querySelector(".popup_type_img");
-const buttonCloseImg = popupImg.querySelector(".popup__close");
-
-const popupImageOpen = popupImg.querySelector(".popup__img-container");
-const popupImageImg = popupImg.querySelector(".popup__img");
-const popupImageTitle = popupImg.querySelector(".popup__img-title");
-
-//////////////////////////////////////////////////////////////////
-
-const popupEditButton = document.querySelector(".info__edit-button");
-const buttonCloseEdit = document.querySelector(".popup__close");
 const popupProfile = document.querySelector(".popup_type_edit-profile");
+const formEditElement = popupProfile.querySelector("#editForm");
+const buttonCloseEditForm = popupProfile.querySelector(".popup__close");
+const popupEditButton = document.querySelector(".info__edit-button");
+
 const infoTitle = document.querySelector(".info__title");
 const infoSubtitle = document.querySelector(".info__subtitle");
-const formEditElement = document.querySelector("#editForm");
-const nameInput = document.querySelector(".popup__input_type_name");
-const jobInput = document.querySelector(".popup__input_type_job");
 
-const popupAddButton = document.querySelector(".profile__add-button");
-const buttonCloseAdd = document.querySelector(".popup__close");
+const nameInput = popupProfile.querySelector(".popup__input_type_name");
+const jobInput = popupProfile.querySelector(".popup__input_type_job");
+///////////////////////////////////////////////////////////////////
+
 const popupCard = document.querySelector(".popup_type_add-card");
+const formAddElement = popupCard.querySelector("#addForm");
+const buttonCloseAddForm = popupCard.querySelector(".popup__close");
+const popupAddButton = document.querySelector(".profile__add-button");
+
+const titleInput = popupCard.querySelector(".popup__input_type_title-img");
+const linkInput = popupCard.querySelector(".popup__input_type_link");
 
 const pictureTitle = document.querySelector(".description__title");
 const pictureLink = document.querySelector(".element__image");
 
-//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+const popupImg = document.querySelector(".popup_type_img");
+const buttonCloseImg = popupImg.querySelector(".popup__close");
+const popupImageOpen = popupImg.querySelector(".popup__img-container");
+const popupImageImg = popupImg.querySelector(".popup__img");
+const popupImageTitle = popupImg.querySelector(".popup__img-title");
+
+/////////////////////////////////////////////////////////////////////
+const template = document
+  .querySelector("#element-template")
+  .content.querySelector(".elements__element");
+
+///////////////////////////////////////////////////////////////////
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -74,7 +52,6 @@ function openPopupProfile() {
   jobInput.value = infoSubtitle.textContent;
   openPopup(popupProfile);
 }
-//////////////////////////////////////////////////////////////////
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
@@ -82,6 +59,8 @@ function handleFormSubmit(evt) {
   infoSubtitle.textContent = jobInput.value;
   closePopup(popupProfile);
 }
+
+//////////////////////////////////////////////////////////////////
 
 const createCard = ({ name, link }) => {
   const card = template.cloneNode(true);
@@ -139,7 +118,7 @@ popupEditButton.addEventListener("click", openPopupProfile);
 
 formEditElement.addEventListener("submit", handleFormSubmit);
 
-buttonCloseEdit.addEventListener("click", () => {
+buttonCloseEditForm.addEventListener("click", () => {
   closePopup(popupProfile);
 });
 
@@ -151,7 +130,7 @@ popupAddButton.addEventListener("click", () => {
 
 formAddElement.addEventListener("submit", addCard);
 
-buttonCloseAdd.addEventListener("click", () => {
+buttonCloseAddForm.addEventListener("click", () => {
   closePopup(popupCard);
 });
 
