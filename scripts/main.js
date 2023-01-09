@@ -9,6 +9,7 @@ const validationConfig = {
 };
 
 const form = document.querySelector(".popup__form");
+
 const nameEditFormInput = document.querySelector("#name");
 const jobEditFormInput = document.querySelector("#job");
 
@@ -17,59 +18,39 @@ const jobEditFormInput = document.querySelector("#job");
 const titleImgAddFormInput = document.querySelector("#title-img");
 const linkAddFormInput = document.querySelector("#link");
 
-/*const passwordInput = document.querySelector("#password");
-const passwordInputRepeat = document.querySelector("#password-repeat");*/
-
-/*function handleSubmit(evt) {
-  evt.preventDefault();
-  console.log({
-    username: userNameInput.value,
-    email: emailInput.value,
-    password: passwordInput.value,
-    passwordRepeat: passwordInputRepeat.value,
-  });
-}*/
-
-/*form.addEventListener("submit", handleSubmit);*/
-
 ///////////////////////////////////////////////////////////////////
 const cardsContainer = document.querySelector(".elements");
 ///////////////////////////////////////////////////////////////////
 
 const popupProfile = document.querySelector(".popup_type_edit-profile");
 const formEditElement = popupProfile.querySelector("#editForm");
-/*const buttonCloseEditForm = popupProfile.querySelector(".popup__close");*/
 const popupEditButton = document.querySelector(".info__edit-button");
-
 const infoTitle = document.querySelector(".info__title");
 const infoSubtitle = document.querySelector(".info__subtitle");
-
 const nameInput = popupProfile.querySelector(".popup__input_type_name");
 const jobInput = popupProfile.querySelector(".popup__input_type_job");
+
 ///////////////////////////////////////////////////////////////////
 const buttonCloseList = document.querySelectorAll(".popup__close");
 ///////////////////////////////////////////////////////////////////
 
 const popupCard = document.querySelector(".popup_type_add-card");
 const formAddElement = popupCard.querySelector("#addForm");
-/*const buttonCloseAddForm = popupCard.querySelector(".popup__close");*/
 const popupAddButton = document.querySelector(".profile__add-button");
-
 const titleInput = popupCard.querySelector(".popup__input_type_title-img");
 const linkInput = popupCard.querySelector(".popup__input_type_link");
-
 const pictureTitle = document.querySelector(".description__title");
 const pictureLink = document.querySelector(".element__image");
 
 /////////////////////////////////////////////////////////////////////
 
 const popupImg = document.querySelector(".popup_type_img");
-/*const buttonCloseImg = popupImg.querySelector(".popup__close");*/
 const popupImageOpen = popupImg.querySelector(".popup__img-container");
 const popupImageImg = popupImg.querySelector(".popup__img");
 const popupImageTitle = popupImg.querySelector(".popup__img-title");
 
 /////////////////////////////////////////////////////////////////////
+
 const template = document
   .querySelector("#element-template")
   .content.querySelector(".elements__element");
@@ -173,10 +154,6 @@ popupEditButton.addEventListener("click", openPopupProfile);
 
 formEditElement.addEventListener("submit", handleEditForm);
 
-/*buttonCloseEditForm.addEventListener("click", () => {
-  closePopup(popupProfile);
-});*/
-
 /////////////////////////////////////////////////////////////////
 
 popupAddButton.addEventListener("click", () => {
@@ -186,15 +163,7 @@ popupAddButton.addEventListener("click", () => {
 
 formAddElement.addEventListener("submit", addCard);
 
-/*buttonCloseAddForm.addEventListener("click", () => {
-  closePopup(popupCard);
-});*/
-
 //////////////////////////////////////////////////////////////////
-
-/*buttonCloseImg.addEventListener("click", () => {
-  closePopup(popupImg);
-});*/
 
 buttonCloseList.forEach((btn) => {
   const popup = btn.closest(".popup");
