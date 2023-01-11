@@ -1,3 +1,10 @@
+function disableSubmitButton(formElement, config) {
+  const buttonSubmit = formElement.querySelector(config.submitButtonSelector);
+  buttonSubmit.classList.remove(config.activeButtonClass);
+  buttonSubmit.classList.add(config.inactiveButtonClass);
+  buttonSubmit.disabled = true;
+}
+
 function showInputError(formElement, inputElement, config) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 

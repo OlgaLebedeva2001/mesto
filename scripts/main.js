@@ -86,6 +86,7 @@ function closePopup(popup) {
 function openPopupProfile() {
   nameInput.value = infoTitle.textContent;
   jobInput.value = infoSubtitle.textContent;
+  disableSubmitButton(popupProfile, validationConfig);
   openPopup(popupProfile);
 }
 
@@ -157,6 +158,7 @@ formEditElement.addEventListener("submit", handleEditForm);
 /////////////////////////////////////////////////////////////////
 
 popupAddButton.addEventListener("click", () => {
+  disableSubmitButton(popupCard, validationConfig);
   openPopup(popupCard);
 });
 
