@@ -1,3 +1,34 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
+const initialCards = [
+  {
+    name: "Архыз",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+  },
+  {
+    name: "Челябинская область",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+  },
+  {
+    name: "Иваново",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+  },
+  {
+    name: "Камчатка",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+  },
+  {
+    name: "Холмогорский район",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+  },
+  {
+    name: "Байкал",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+  },
+];
+
+///////////////////////////////////////////////////////
 const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -7,16 +38,6 @@ const validationConfig = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__input-error_visible",
 };
-
-const form = document.querySelector(".popup__form");
-
-const nameEditFormInput = document.querySelector("#name");
-const jobEditFormInput = document.querySelector("#job");
-
-////////////////////////////////////////////////////////////////
-
-const titleImgAddFormInput = document.querySelector("#title-img");
-const linkAddFormInput = document.querySelector("#link");
 
 ///////////////////////////////////////////////////////////////////
 const cardsContainer = document.querySelector(".elements");
@@ -45,17 +66,10 @@ const pictureLink = document.querySelector(".element__image");
 /////////////////////////////////////////////////////////////////////
 
 const popupImg = document.querySelector(".popup_type_img");
-const popupImageOpen = popupImg.querySelector(".popup__img-container");
 const popupImageImg = popupImg.querySelector(".popup__img");
 const popupImageTitle = popupImg.querySelector(".popup__img-title");
 
 /////////////////////////////////////////////////////////////////////
-
-const template = document
-  .querySelector("#element-template")
-  .content.querySelector(".elements__element");
-
-///////////////////////////////////////////////////////////////////
 
 function openPopup(popup) {
   popup.addEventListener("click", closePopupOnOverlay);
@@ -86,7 +100,7 @@ function closePopup(popup) {
 function openPopupProfile() {
   nameInput.value = infoTitle.textContent;
   jobInput.value = infoSubtitle.textContent;
-  disableSubmitButton(popupProfile, validationConfig);
+  enableValidationEdit.resetValidation();
   openPopup(popupProfile);
 }
 
@@ -99,37 +113,24 @@ function handleEditForm(evt) {
 
 //////////////////////////////////////////////////////////////////
 
-const createCard = ({ name, link }) => {
-  const card = template.cloneNode(true);
-
-  card.querySelector(".description__title").textContent = name;
-
-  const image = card.querySelector(".element__image");
-
-  image.src = link;
-  image.alt = name;
-
-  card.querySelector(".element__del").addEventListener("click", () => {
-    card.remove();
-  });
-
-  const cardLike = card.querySelector(".description__vector");
-  cardLike.addEventListener("click", () => {
-    cardLike.classList.toggle("description__vector_active");
-  });
-
-  image.addEventListener("click", () => {
-    openBigImage({ name, link });
-  });
-
-  return card;
-};
-
 const renderCard = ({ name, link }) => {
-  cardsContainer.prepend(createCard({ name, link }));
+  const card = new Card({ name, link }, "#element-template", openBigImage);
+  cardsContainer.prepend(card.getView());
 };
 
-cardsContainer.append(...initialCards.map(createCard));
+initialCards.forEach(({ name, link }) => {
+  renderCard({ name, link });
+});
+
+//////////////////////////////////////////////////////////////////
+const enableValidationEdit = new FormValidator(
+  formEditElement,
+  validationConfig
+);
+enableValidationEdit.enableValidation(formEditElement);
+
+const enableValidationAdd = new FormValidator(formAddElement, validationConfig);
+enableValidationAdd.enableValidation(formAddElement);
 
 //////////////////////////////////////////////////////////////////
 
@@ -142,7 +143,7 @@ const addCard = (event) => {
 
 //////////////////////////////////////////////////////////////////
 
-function openBigImage({ name, link }) {
+function openBigImage(name, link) {
   popupImageImg.src = link;
   popupImageImg.alt = name;
   popupImageTitle.textContent = name;
@@ -158,7 +159,6 @@ formEditElement.addEventListener("submit", handleEditForm);
 /////////////////////////////////////////////////////////////////
 
 popupAddButton.addEventListener("click", () => {
-  disableSubmitButton(popupCard, validationConfig);
   openPopup(popupCard);
 });
 
@@ -170,5 +170,3 @@ buttonCloseList.forEach((btn) => {
   const popup = btn.closest(".popup");
   btn.addEventListener("click", () => closePopup(popup));
 });
-
-enableValidation(validationConfig);
