@@ -16,6 +16,7 @@ class Card {
 
   _handleDelete() {
     this._newCard.remove();
+    this._newCard = null;
   }
 
   _handleLikeCard() {
@@ -29,8 +30,7 @@ class Card {
     this._likeButton = this._newCard.querySelector(".description__vector");
     this._likeButton.addEventListener("click", () => this._handleLikeCard());
 
-    this._image = this._newCard.querySelector(".element__image");
-    this._image.addEventListener("click", () =>
+    this.link.addEventListener("click", () =>
       this._clickImage(this._name, this._link)
     );
   }
@@ -38,15 +38,15 @@ class Card {
   _setData() {
     const name = this._newCard.querySelector(".description__title");
     name.textContent = this._name;
-    const link = this._newCard.querySelector(".element__image");
-    link.src = this._link;
-    link.alt = this._name;
+    this.link = this._newCard.querySelector(".element__image");
+    this.link.src = this._link;
+    this.link.alt = this._name;
   }
 
   getView() {
     this._newCard = this._getTemplateCard();
-    this._setEventListeners();
     this._setData();
+    this._setEventListeners();
 
     return this._newCard;
   }

@@ -60,8 +60,6 @@ const formAddElement = popupCard.querySelector("#addForm");
 const popupAddButton = document.querySelector(".profile__add-button");
 const titleInput = popupCard.querySelector(".popup__input_type_title-img");
 const linkInput = popupCard.querySelector(".popup__input_type_link");
-const pictureTitle = document.querySelector(".description__title");
-const pictureLink = document.querySelector(".element__image");
 
 /////////////////////////////////////////////////////////////////////
 
@@ -115,11 +113,12 @@ function handleEditForm(evt) {
 
 const renderCard = ({ name, link }) => {
   const card = new Card({ name, link }, "#element-template", openBigImage);
-  cardsContainer.prepend(card.getView());
+  return card.getView();
 };
 
+//////////////////////////////////////////////////////
 initialCards.forEach(({ name, link }) => {
-  renderCard({ name, link });
+  cardsContainer.append(renderCard({ name, link }));
 });
 
 //////////////////////////////////////////////////////////////////
@@ -136,7 +135,9 @@ enableValidationAdd.enableValidation(formAddElement);
 
 const addCard = (event) => {
   event.preventDefault();
-  renderCard({ name: titleInput.value, link: linkInput.value });
+  cardsContainer.prepend(
+    renderCard({ name: titleInput.value, link: linkInput.value })
+  );
   closePopup(popupCard);
   formAddElement.reset();
 };
@@ -159,6 +160,7 @@ formEditElement.addEventListener("submit", handleEditForm);
 /////////////////////////////////////////////////////////////////
 
 popupAddButton.addEventListener("click", () => {
+  enableValidationAdd.resetValidation();
   openPopup(popupCard);
 });
 
