@@ -21,16 +21,7 @@ import {
 const cardList = new Section(
   {
     items: initialCards.reverse(),
-    renderer: ({ name, link }) => {
-      const card = new Card(
-        { name, link },
-        "#element-template",
-        handleCardClick
-      );
-      const cardElement = card.getView();
-
-      cardList.addItem(cardElement);
-    },
+    renderer: createCard,
   },
   cardsContainer
 );
@@ -52,8 +43,7 @@ popupEditForm.setEventListeners();
 
 popupEditButton.addEventListener("click", () => {
   const { name, job } = userInfo.getUserInfo();
-  infoTitle.value = name;
-  infoSubtitle.value = job;
+  popupEditForm.setInputValues({ name, job });
   enableValidationEdit.resetValidation();
   popupEditForm.open();
 });
@@ -73,13 +63,9 @@ function submitCardForm(inputValues) {
   const name = inputValues.pictureTitle;
   const link = inputValues.pictureLink;
 
-  const newCard = new Card(
-    { name, link },
-    "#element-template",
-    handleCardClick
-  );
+  const newCard = createCard({ name, link });
 
-  cardList.addItem(newCard.getView());
+  cardList.addItem(newCard);
 
   popupAddForm.close();
 }
@@ -88,6 +74,14 @@ popupAddButton.addEventListener("click", () => {
   enableValidationAdd.resetValidation();
   popupAddForm.open();
 });
+
+//////////////////////////////////////////////////////////////////
+
+function createCard(item) {
+  const card = new Card(item, "#element-template", handleCardClick);
+  const cardElement = card.getView();
+  return cardElement;
+}
 
 //////////////////////////////////////////////////////////////////
 const userInfo = new UserInfo({
