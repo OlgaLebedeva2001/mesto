@@ -4,6 +4,7 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 import "./index.css";
 import {
   initialCards,
@@ -11,8 +12,6 @@ import {
   cardsContainer,
   formEditElement,
   popupEditButton,
-  infoTitle,
-  infoSubtitle,
   formAddElement,
   popupAddButton,
 } from "../utils/constants.js";
@@ -20,13 +19,13 @@ import {
 //////////////////////////////////////////////////////////////////
 const cardList = new Section(
   {
-    items: initialCards.reverse(),
+    //items: initialCards.reverse(),
     renderer: createCard,
   },
   cardsContainer
 );
 
-cardList.renderItems();
+//cardList.renderItems();
 //////////////////////////////////////////////////////////////////
 
 //Открытие большой картинки:
@@ -104,3 +103,9 @@ enableValidationEdit.enableValidation(formEditElement);
 
 const enableValidationAdd = new FormValidator(formAddElement, validationConfig);
 enableValidationAdd.enableValidation(formAddElement);
+
+///////////////////////////////////////////////////////////
+const api = new Api();
+api.getCards().then((items) => {
+  cardsContainer.append(cardList.renderItems(items));
+});
