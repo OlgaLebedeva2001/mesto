@@ -1,4 +1,4 @@
-const initialCards = [
+/*const initialCards = [
   {
     name: "Япония",
     link: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -23,7 +23,7 @@ const initialCards = [
     name: "Грузия",
     link: "https://images.unsplash.com/photo-1626096762791-5cdb64c4363d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
   },
-];
+];*/
 
 ///////////////////////////////////////////////////////
 const validationConfig = {
@@ -46,14 +46,21 @@ const popupEditButton = document.querySelector(".info__edit-button");
 const infoTitle = document.querySelector(".info__title");
 const infoSubtitle = document.querySelector(".info__subtitle");
 
+const popupName = popupProfile.querySelector(".popup__input_type_name");
+const popupJob = popupProfile.querySelector(".popup__input_type_job");
+
 ///////////////////////////////////////////////////////////////////
+const popupEditAvatar = document.querySelector(".popup_type_edit-avatar");
+const formEditAvatar = popupEditAvatar.querySelector("#editAvatar");
 
 const popupCard = document.querySelector(".popup_type_add-card");
 const formAddElement = popupCard.querySelector("#addForm");
 const popupAddButton = document.querySelector(".profile__add-button");
 
+const buttonEditAvatar = document.querySelector(".profile__avatar-edit");
+
 export {
-  initialCards,
+  /*initialCards,*/
   validationConfig,
   cardsContainer,
   formEditElement,
@@ -62,4 +69,8 @@ export {
   infoSubtitle,
   formAddElement,
   popupAddButton,
+  popupName,
+  popupJob,
+  buttonEditAvatar,
+  formEditAvatar,
 };

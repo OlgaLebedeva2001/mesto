@@ -5,6 +5,9 @@
   object-fit: cover;
   margin-right: 26px;
   object-position: center;
+  z-index: 1;
+  pointer-events: none;
+  background-size: cover;
 }
 
 @media screen and (max-width: 753px) {
