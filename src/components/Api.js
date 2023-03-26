@@ -18,11 +18,6 @@ class Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  /*_getErr(err) {
-    console.log(err);
-    return Promise.reject(err);
-  }*/
-
   getUserInfo() {
     return fetch(`${this._basePath}/users/me`, {
       headers: this._getHeaders(),
@@ -33,10 +28,6 @@ class Api {
     return fetch(`${this._basePath}/cards`, {
       headers: this._getHeaders(),
     }).then(this._getJson);
-    /*.catch((err) => {
-      console.log(err);
-      return Promise.reject(err);
-    });*/
   }
 
   createCard(item) {
@@ -48,10 +39,6 @@ class Api {
         link: item.link,
       }),
     }).then(this._getJson);
-    /*.catch((err) => {
-        console.log(err);
-        return Promise.reject(err);
-      });*/
   }
 
   setEditUserInfo(data) {
@@ -63,7 +50,6 @@ class Api {
         about: data.job,
       }),
     }).then(this._getJson);
-    /*.catch(this._getErr);*/
   }
 
   deleteCardApi(cardId) {
@@ -83,7 +69,6 @@ class Api {
     }).then(this._getJson);
   }
 
-  //Метод для постановки лайков:
   addLike(cardId) {
     return fetch(`${this._basePath}/cards/${cardId}/likes`, {
       method: "PUT",
@@ -91,7 +76,6 @@ class Api {
     }).then(this._getJson);
   }
 
-  //Метод для снятия лайков:
   deleteLike(cardId) {
     return fetch(`${this._basePath}/cards/${cardId}/likes`, {
       method: "DELETE",

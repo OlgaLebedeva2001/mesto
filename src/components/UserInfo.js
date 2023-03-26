@@ -6,16 +6,8 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    /*this._name.textContent = name;
-    this._about.textContent = about;
-    this._avatar.src = avatar;
-    /*return {
-      this._name.textContent=name,
-      this._job.textContent=job,
-    };*/
-
     return {
-      user: this._name.textContent, //считывает текстовое содержимое this._name(т.е. элемента селектор которого дан) и записывает его в поле user
+      user: this._name.textContent,
       about: this._about.textContent,
       _id: this._id,
       avatar: this._avatar.src,

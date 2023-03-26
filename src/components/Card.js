@@ -38,44 +38,6 @@ class Card {
     return this._card;
   };
 
-  /*_handleDelete() {
-    this._newCard.remove();
-    this._newCard = null;
-  }*/
-
-  /* _handleLikeCard() {
-    this._likeButton.classList.toggle("like__vector_active");
-  }*/
-
-  /*_setEventListeners() {
-    this._deleteCard = this._newCard.querySelector(".element__del");
-    this._deleteCard.addEventListener("click", () => this._handleDelete());
-
-    this._likeButton = this._newCard.querySelector(".like__vector");
-    this._likeButton.addEventListener("click", () => this._handleLikeCard());
-
-    this.link.addEventListener("click", () =>
-      this._handleCardClick(this._name, this._link)
-    );
-  }*/
-
-  /*_setData() {
-    const name = this._newCard.querySelector(".description__title");
-    name.textContent = this._name;
-    this.link = this._newCard.querySelector(".element__image");
-    this.link.src = this._link;
-    this.link.alt = this._name;
-  }*/
-
-  /*getView() {
-    /*this._newCard = this._getTemplateCard();
-    this._setData();
-    /*this._setEventListeners();
-    this._setEventHandlers();
-    return this._newCard;
-  }*/
-
-  ///////////////////////////////////////////////////////////////////////////////
   _addLikeCard = () => {
     this._likeCard(this, this._cardId);
   };
@@ -102,8 +64,6 @@ class Card {
     );
   };
 
-  /////////////////////////////////////////////////////////////////////////////////
-
   _isYourCard() {
     if (this._ownerId === this._userId) {
       return true;
@@ -112,7 +72,6 @@ class Card {
     }
   }
 
-  ////////////////////////////////////////////////////
   _likeCardForUser() {
     if (this._isLike()) {
       this._removeLikeCard();
@@ -120,7 +79,6 @@ class Card {
       this._addLikeCard();
     }
   }
-  ///////////////////////////////////////////////////
 
   deleteCardElement() {
     this._delete.closest(".element").remove();
