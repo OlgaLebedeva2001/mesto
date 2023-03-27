@@ -30,6 +30,17 @@ class Api {
     }).then(this._getJson);
   }
 
+  setEditUserInfo(data) {
+    return fetch(`${this._basePath}/users/me`, {
+      method: "PATCH",
+      headers: this._getHeaders(),
+      body: JSON.stringify({
+        name: data.name,
+        about: data.job,
+      }),
+    }).then(this._getJson);
+  }
+
   createCard(item) {
     return fetch(`${this._basePath}/cards`, {
       method: "POST",
@@ -41,14 +52,17 @@ class Api {
     }).then(this._getJson);
   }
 
-  setEditUserInfo(data) {
-    return fetch(`${this._basePath}/users/me`, {
-      method: "PATCH",
+  addLike(cardId) {
+    return fetch(`${this._basePath}/cards/${cardId}/likes`, {
+      method: "PUT",
       headers: this._getHeaders(),
-      body: JSON.stringify({
-        name: data.name,
-        about: data.job,
-      }),
+    }).then(this._getJson);
+  }
+
+  deleteLike(cardId) {
+    return fetch(`${this._basePath}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._getHeaders(),
     }).then(this._getJson);
   }
 
@@ -66,20 +80,6 @@ class Api {
       body: JSON.stringify({
         avatar: data.avatar,
       }),
-    }).then(this._getJson);
-  }
-
-  addLike(cardId) {
-    return fetch(`${this._basePath}/cards/${cardId}/likes`, {
-      method: "PUT",
-      headers: this._getHeaders(),
-    }).then(this._getJson);
-  }
-
-  deleteLike(cardId) {
-    return fetch(`${this._basePath}/cards/${cardId}/likes`, {
-      method: "DELETE",
-      headers: this._getHeaders(),
     }).then(this._getJson);
   }
 }

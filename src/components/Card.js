@@ -38,22 +38,14 @@ class Card {
     return this._card;
   };
 
-  _addLikeCard = () => {
-    this._likeCard(this, this._cardId);
-  };
-
   likeElement(cardData) {
     this._likeQuantityCard.textContent = cardData.likes.length;
     this._likeQuantity = cardData.likes;
-    this._like.classList.add(".like__vector_active");
+    this._like.classList.add("like__vector_active");
   }
 
-  _removeLikeCard = () => {
-    this._dislikeCard(this, this._cardId);
-  };
-
   dislikeElement(cardData) {
-    this._like.classList.remove(".like__vector_active");
+    this._like.classList.remove("like__vector_active");
     this._likeQuantityCard.textContent = cardData.likes.length;
     this._likeQuantity = cardData.likes;
   }
@@ -74,9 +66,9 @@ class Card {
 
   _likeCardForUser() {
     if (this._isLike()) {
-      this._removeLikeCard();
+      this._dislikeCard(this, this._cardId);
     } else {
-      this._addLikeCard();
+      this._likeCard(this, this._cardId);
     }
   }
 
@@ -88,7 +80,9 @@ class Card {
     this._delete.addEventListener("click", () =>
       this._deleteCard(this, this._cardId)
     );
+
     this._like.addEventListener("click", () => this._likeCardForUser());
+
     this._image.addEventListener("click", () =>
       this._handleCardClick(this._name, this._link)
     );
